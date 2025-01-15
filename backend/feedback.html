@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Feedback Form</title>
+  <style>
+    /* Custom Background */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url('../assets/feedback.jpg') no-repeat center center fixed;
+      background-size: cover;
+      animation: gradient 5s ease infinite;
+    }
+
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Form Container with Mica Effect */
+    .form-container {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #2196f3;
+      box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    }
+
+    button {
+      background: linear-gradient(135deg, #42a5f5, #7e57c2);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #7e57c2, #42a5f5);
+    }
+
+    .captcha-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .captcha-container input {
+      width: calc(70% - 10px);
+    }
+
+    .captcha-container span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 5px 10px;
+      background: #ddd;
+      border-radius: 5px;
+    }
+
+    .form-footer {
+      font-size: 0.8rem;
+      color: #666;
+      text-align: center;
+    }
+
+.arrow-button-left {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  background-image: url('../assets/arrow.png'); /* Add your custom image path here */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.arrow-button-left:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+.arrow-button-left a {
+  color: transparent; /* Hide the text */
+  text-decoration: none;
+}
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Share Your Feedback</h1>
+    <form id="feedbackForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <select id="category" required>
+        <option value="" disabled selected>Select Category</option>
+        <option value="Suggestion">Suggestion</option>
+        <option value="Bug Report">Bug Report</option>
+        <option value="Praise">Praise</option>
+      </select>
+      <textarea id="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+      <div class="captcha-container">
+        <span id="captchaCode"></span>
+        <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+      </div>
+      <button type="submit">Submit Feedback</button>
+    </form>
+    <div class="form-footer">Your feedback is highly appreciated!</div>
+  </div>
+  <div class="arrow-button-left">
+    <a href="player.html">⇐</a>
+  </div>
+  <script>
+    // Generate a random CAPTCHA
+    function generateCaptcha() {
+      const captchaCode = Math.random().toString(36).substr(2, 5).toUpperCase();
+      document.getElementById("captchaCode").textContent = captchaCode;
+      return captchaCode;
+    }
+
+    let captchaCode = generateCaptcha();
+
+    // Form submission handler
+    document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const category = document.getElementById('category').value;
+      const feedback = document.getElementById('feedback').value;
+      const captchaInput = document.getElementById('captchaInput').value;
+
+      // Validate CAPTCHA
+      if (captchaInput.toUpperCase() !== captchaCode) {
+        alert('CAPTCHA is incorrect. Please try again.');
+        captchaCode = generateCaptcha();
+        return;
+      }
+
+      const webhookURL = 'https://discord.com/api/webhooks/1329043577002790993/9x2RheqaRHuG3e6uEFHbsrhp-sSq82K-74XKnt8GzYo4z2sKHRWx-9OANrPmdNxZjMrC'; // Replace with your webhook URL
+      const timestamp = new Date().toISOString();
+
+      const payload = {
+        content: "New Feedback Received!",
+        embeds: [
+          {
+            title: "Feedback Details",
+            fields: [
+              { name: "Name", value: name, inline: true },
+              { name: "Category", value: category, inline: true },
+              { name: "Feedback", value: feedback, inline: false },
+            ],
+            timestamp: timestamp,
+            color: 3447003, // Blue color
+          },
+        ],
+      };
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+          alert('Feedback submitted successfully!');
+          document.getElementById('feedbackForm').reset();
+          captchaCode = generateCaptcha();
+        } else {
+          alert('Failed to send feedback. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

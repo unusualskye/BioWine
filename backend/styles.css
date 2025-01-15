@@ -1,0 +1,503 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    color: white;
+    overflow: hidden;
+    position: relative; /* Ensure full control over the background */
+}
+
+/* Keyframes for Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Apply Animation to the Entire Website */
+body {
+    animation: fadeIn 1.5s ease-out; /* 1.5 seconds fade-in effect */
+    opacity: 0; /* Start hidden */
+    animation-fill-mode: forwards; /* Retain final state after animation ends */
+}
+
+
+/* Background */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    autoplay: true;
+    loop: true;
+    muted: true;
+}
+
+/* Add the path to the video in the HTML file */
+
+/* Mica Effect Container */
+.mica-effect {
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5);
+    padding: 30px;
+    display: flex; /* Flexbox for content alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    gap: 20px; /* Add spacing between elements */
+    width: 100%;
+    max-width: 450px; /* Limit width for responsive design */
+    text-align: center;
+    justify-content: center; /* Vertical centering for the container content */
+    position: absolute; /* Positioning it absolutely */
+    top: 50%; /* Centering vertically */
+    left: 50%; /* Centering horizontally */
+    transform: translate(-50%, -50%); /* Adjusting position */
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(148, 148, 148, 0.7);
+    margin-bottom: 10px;
+}
+
+/* Discord Badges */
+.discord-badges {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.badge {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.badge img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 127, 1);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.badge:hover .tooltip {
+    opacity: 1;
+}
+
+/* Social Media Logos */
+.social-media-links {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.social-logo {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.social-logo:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+/* Footer */
+.footer {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.custom-rpc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Push avatars to the sides */
+    gap: 15px;
+    background: rgba(82, 80, 80, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(58, 58, 58, 0.7);
+    max-width: 400px;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Interactive feel */
+}
+
+.custom-rpc:hover {
+    box-shadow: 0 12px 40px rgba(245, 245, 245, 0.7);
+    background: rgba(82, 80, 80, 0.7);
+}
+
+
+/* Username container for aligning text and images */
+.username-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between username and image container */
+    position: relative;
+}
+
+
+/* Styling the image container */
+#image-container {
+    display: flex;
+    gap: 1px;
+    padding: 0.00001px 0.00001px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(94, 255, 94, 0.2);
+}
+
+/* Images inside the container */
+#image-container img {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Hover effect for images */
+#image-container img:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Left Avatar */
+.rpc-avatar-left img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.3s ease;
+}
+
+.rpc-avatar-left img:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+/* Right Avatar */
+.rpc-avatar-right img {
+    width: 70px;
+    height: 80px;
+    border-radius: 20%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.3s ease;
+}
+
+.rpc-avatar-right img:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+/* Details Section */
+.rpc-details {
+    color: white;
+    text-align: center; /* Align text to the center */
+    flex: 1; /* Take up available space between avatars */
+}
+
+.rpc-details h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.rpc-details h3:hover {
+    color: rgb(172, 255, 121);
+}
+
+.rpc-details p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: #ddd;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.rpc-details p span {
+    color: #a6e22e;
+    font-weight: bold;
+}
+
+.rpc-details p:hover {
+    color: rgb(38, 255, 26);
+    text-shadow: 0 0 10px rgb(165, 255, 147);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+.id-name {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.id-name:hover {
+    color: #92ff24; /* Change to a glowing pink when hovered */
+    text-shadow: 0 0 10px #29ff25, 0 0 20px #8fff4a, 0 0 30px #bcff92;
+}
+.id-name2 {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.id-name2:hover {
+    color: #11ff2d; /* Change to a glowing pink when hovered */
+    text-shadow: 0 0 10px #3cff35, 0 0 20px #60ff65, 0 0 30px #82ff97;
+}
+
+/* Rounded Rectangle Container for Logos */
+.logo-container {
+    display: flex;
+    gap: 10px; /* Spacing between logos */
+    margin-top: 10px;
+    padding: 7px 7px; /* Padding inside the container */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 25px; /* Rounded rectangle shape */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+}
+
+/* Logos */
+.logo {
+    width: 20px; /* Adjust size of the logos */
+    height: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50%; /* Make logos perfectly rounded */
+    box-shadow: none; /* Remove any default shadow or container */
+}
+
+.logo:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1); /* Add a white glow effect */
+}
+
+.mute-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+.mute-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mute-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Parent container for proper positioning */
+.rpc-avatar {
+    position: relative; /* Ensure child elements can be absolutely positioned */
+    width: 60px;
+    height: 60px;
+}
+
+/* Rounded rectangle container for images */
+.image-container {
+    display: inline-flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the container */
+    background-color: rgba(255, 255, 255, 0.2); /* Light translucent background */
+    margin-left: 10px; /* Space between username and container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Small icons inside the container */
+.small-icon {
+    width: 5px;
+    height: 5px;
+    margin: 0 5px; /* Spacing between icons */
+    border-radius: 50%; /* Make the images circular */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #0c0c0c;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+}
+
+/* Second Section: Music Player */
+.music-player-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #414345, #232526);
+    padding: 20px;
+}
+
+.music-player-container {
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Left Cover Art */
+.cover-art {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.cover-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right Music Controls */
+.music-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.song-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.song-details {
+    flex-grow: 1;
+}
+
+.song-details p {
+    margin: 0;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.music-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.music-actions button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+}
