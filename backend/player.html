@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="player.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <div class="music-player">
+    <!-- Left container for cover art -->
+    <div class="cover-art-container">
+      <img id="main-cover-art" src="../assets/jenga.gif" alt="Cover Art">
+    </div>
+
+    <!-- Right container for track list -->
+    <div class="track-list" id="track-list">
+      <div class="track" data-index="0">
+        <img src="../assets/cigs.jpg" alt="Track Cover" class="track-cover">
+        <div class="track-info">
+          <p class="track-name">Bad Girls Like You</p>
+          <p class="artist-name">Song by Tobii</p>
+        </div>
+        <button class="play-button" data-index="0">Play</button>
+      </div>
+      <div class="track" data-index="1">
+        <img src="../assets/c02.png" alt="Track Cover" class="track-cover">
+        <div class="track-info">
+          <p class="track-name">Tainu Khabar Nahi</p>
+          <p class="artist-name">Arijit Singh</p>
+        </div>
+        <button class="play-button" data-index="1">Play</button>
+      </div>
+      <div class="track" data-index="2">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Amaarae_-_Sad_Girlz_Luv_Money_%28Remix%29.png" alt="Track Cover" class="track-cover">
+        <div class="track-info">
+          <p class="track-name">SAD GIRLZ LUV MONEY</p>
+          <p class="artist-name">Amaarae</p>
+        </div>
+        <button class="play-button" data-index="2">Play</button>
+      </div>
+      <div class="track" data-index="3">
+        <img src="https://c.saavncdn.com/072/Lagaan-Hindi-2001-20190603122008-500x500.jpg" alt="Track Cover" class="track-cover">
+        <div class="track-info">
+          <p class="track-name">O Paalanhaare</p>
+          <p class="artist-name">Lata Mangeshkar</p>
+        </div>
+        <button class="play-button" data-index="3">Play</button>
+      </div>
+    </div>
+
+    <!-- Controls for active track -->
+    <div class="active-track" id="active-track">
+      <p id="active-track-name"></p>
+      <p id="active-artist-name"></p>
+      <div class="controls">
+        <button id="prev-button">Prev</button>
+        <button id="play-pause-button">Pause</button>
+        <button id="loop-button">Loop</button>
+        <button id="next-button">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-button-right">
+    <a href="feedback.html">➤</a>
+</div>
+<div class="arrow-button-left">
+  <a href="../index.html">⇐</a>
+</div>
+  <script src="player.js"></script>
+</body>
+</html>

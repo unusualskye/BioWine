@@ -1,0 +1,198 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url('../assets/background-player.gif') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  }
+  
+  .music-player {
+    display: flex;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 600px;
+  }
+  
+  .cover-art-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .cover-art-container img {
+    width: 160px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform-origin: center;
+    transition: transform 0.3s ease; /* Fallback for browsers without GSAP */
+  }
+  .cover-art-container.small {
+    flex: 0.8; /* Reduce the container width */
+  }
+  
+  .cover-art-container.small img {
+    width: 120px; /* Smaller image */
+    height: 120px;
+  }
+  
+  .track-list {
+    flex: 1.5;
+    padding: 15px;
+    background-color: rgba(250, 250, 250, 0.8);
+    border-radius: 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+  }
+  
+  .track {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .track-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .track-info {
+    flex: 1;
+  }
+  
+  .track-name {
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  
+  .artist-name {
+    color: #666;
+    font-size: 0.8em;
+    margin-top: -1px; /* Adjust this value as needed */
+  }
+  
+  .play-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+  
+  .play-button:hover {
+    background-color: #45a049;
+  }
+  
+  .active-track {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(250, 250, 250, 0.8);
+    width: 100%;
+  }
+  
+  .active-track .controls button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .active-track .controls button:hover {
+    background-color: #45a049;
+  }
+
+  /* Add this for hiding and showing elements */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+  }
+  
+  .mica-effect {
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+
+.arrow-button-right {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  background-image: url('../assets/arrow.png'); /* Add your custom image path here */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.arrow-button-right:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+.arrow-button-right a {
+  color: transparent; /* Hide the text */
+  text-decoration: none;
+}
+
+.arrow-button-left {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  background-image: url('../assets/arrow.png'); /* Add your custom image path here */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.arrow-button-left:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+.arrow-button-left a {
+  color: transparent; /* Hide the text */
+  text-decoration: none;
+}
