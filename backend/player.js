@@ -11,25 +11,25 @@ const tracks = [
     name: "Bad Girls Like You", 
     artist: "Tobii", 
     cover: "../assets/cigs.jpg", 
-    src: "../assets/songs/Apocalypse.mp3" 
+    src: "../assets/songs/Apocalypse.MP3" 
   },
   { 
     name: "Tainu Khabar Nahi", 
     artist: "Arijit Singh", 
     cover: "../assets/c02.png", 
-    src: "../assets/songs/C02.mp3" 
+    src: "../assets/songs/C02.MP3" 
   },
   { 
     name: "SAD GIRLZ LUV MONEY", 
     artist: "Amaarae", 
     cover: "https://upload.wikimedia.org/wikipedia/en/a/a2/Amaarae_-_Sad_Girlz_Luv_Money_%28Remix%29.png", 
-    src: "../assets/songs/AUR.mp3" 
+    src: "../assets/songs/AUR.MP3" 
   },
   { 
     name: "O Paalanhaare", 
     artist: "Lata Mangeshkar", 
     cover: "https://c.saavncdn.com/072/Lagaan-Hindi-2001-20190603122008-500x500.jpg", 
-    src: "../assets/songs/NOOR.mp3" 
+    src: "../assets/songs/NOOR.MP3" 
   }
 ];
 
