@@ -1,132 +1,96 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Sample data
-    const rpcData = {
-        avatarLeftUrl: "./assets/avatar.png",
-        avatarRightUrl: "https://i.imgur.com/B9Q3zsr.gif",
-        username: "Wine ♡",
-        status: "In Love with Skye <3",
-        details: "",
-        images: [
-            "/assets/icon1.png", // First image
-            "/assets/icon2.png"  // Second image
-        ]
-    };
+const trackList = document.getElementById("track-list");
+const activeTrack = document.getElementById("active-track");
+const mainCoverArt = document.getElementById("main-cover-art");
+const activeTrackName = document.getElementById("active-track-name");
+const activeArtistName = document.getElementById("active-artist-name");
+const playPauseButton = document.getElementById("play-pause-button");
+const nextButton = document.getElementById("next-button");
 
-    // Update the avatars and details
-    document.getElementById("rpc-avatar-left").src = rpcData.avatarLeftUrl;
-    document.getElementById("rpc-avatar-right").src = rpcData.avatarRightUrl;
-    document.getElementById("rpc-username").textContent = rpcData.username;
-    document.getElementById("rpc-status").textContent = rpcData.status;
-    document.getElementById("rpc-details").textContent = rpcData.details;
-
-    // Get the container and clear it to avoid duplication
-    const imageContainer = document.getElementById("image-container");
-    imageContainer.innerHTML = ""; // Clear existing items
-
-    document.getElementById("rpc-username").style.textAlign = "left";
-
-    // Add exactly 2 images
-    rpcData.images.forEach((imageUrl) => {
-        const img = document.createElement("img");
-        img.src = imageUrl;
-        img.alt = "Icon";
-        img.style.width = "30px";
-        img.style.height = "30px";
-        img.style.margin = "0 5px";
-        img.style.borderRadius = "5px";
-        img.style.boxShadow = "0 0 5px rgba(255, 255, 255, 0.7)";
-        imageContainer.appendChild(img);
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const muteButton = document.getElementById("mute-button");
-    const audio = document.getElementById("background-audio");
-
-    // Start with the audio muted
-    audio.muted = true;
-
-    muteButton.addEventListener("click", () => {
-        if (audio.muted) {
-            audio.muted = false;
-            audio.play();
-            muteButton.textContent = "🔊"; // Change icon to unmute
-        } else {
-            audio.muted = true;
-            audio.pause();
-            muteButton.textContent = "🔇"; // Change icon to mute
-        }
-    });
-});
-
-const songs = [
-    {
-        title: "Song Title 1",
-        artist: "Artist 1",
-        cover: "./assets/song1-cover.jpg",
-        audio: "./assets/song1.mp3"
-    },
-    {
-        title: "Song Title 2",
-        artist: "Artist 2",
-        cover: "./assets/song2-cover.jpg",
-        audio: "./assets/song2.mp3"
-    },
-    {
-        title: "Song Title 3",
-        artist: "Artist 3",
-        cover: "./assets/song3-cover.jpg",
-        audio: "./assets/song3.mp3"
-    },
-    {
-        title: "Song Title 4",
-        artist: "Artist 4",
-        cover: "./assets/song4-cover.jpg",
-        audio: "./assets/song4.mp3"
-    }
+const tracks = [
+  { 
+    name: "Bad Girls Like You", 
+    artist: "Tobii", 
+    cover: "../assets/cigs.jpg", 
+    src: "../assets/songs/Apocalypse.mp3" 
+  },
+  { 
+    name: "Tainu Khabar Nahi", 
+    artist: "Arijit Singh", 
+    cover: "../assets/c02.png", 
+    src: "../assets/songs/C02.mp3" 
+  },
+  { 
+    name: "SAD GIRLZ LUV MONEY", 
+    artist: "Amaarae", 
+    cover: "https://upload.wikimedia.org/wikipedia/en/a/a2/Amaarae_-_Sad_Girlz_Luv_Money_%28Remix%29.png", 
+    src: "../assets/songs/AUR.mp3" 
+  },
+  { 
+    name: "O Paalanhaare", 
+    artist: "Lata Mangeshkar", 
+    cover: "https://c.saavncdn.com/072/Lagaan-Hindi-2001-20190603122008-500x500.jpg", 
+    src: "../assets/songs/NOOR.mp3" 
+  }
 ];
 
-let currentSongIndex = 0;
-const audio = new Audio(songs[currentSongIndex].audio);
-const coverArt = document.getElementById("cover-art");
-const playPauseBtn = document.getElementById("play-pause");
-const nextSongBtn = document.getElementById("next-song");
+let currentTrackIndex = null;
+let audio = new Audio();
+let isPlaying = false;
 
-document.querySelectorAll(".play-btn").forEach((button, index) => {
-    button.addEventListener("click", () => {
-        currentSongIndex = index;
-        updateSong();
-        playMusic();
-    });
-});
+// GSAP setup
+gsap.set(trackList, { opacity: 1, y: 0 });
+gsap.set(activeTrack, { opacity: 0, y: 20 });
 
-playPauseBtn.addEventListener("click", () => {
-    if (audio.paused) {
-        playMusic();
-    } else {
-        pauseMusic();
-    }
-});
+// Play a track with animations
+function playTrack(index) {
+  const track = tracks[index];
+  mainCoverArt.src = track.cover;
+  activeTrackName.textContent = track.name;
+  activeArtistName.textContent = track.artist;
+  audio.src = track.src;
+  audio.play();
+  isPlaying = true;
+  currentTrackIndex = index;
 
-nextSongBtn.addEventListener("click", () => {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
-    updateSong();
-    playMusic();
-});
+  // Hide track list and show active track with smooth animations
+  gsap.to(trackList, { opacity: 0, y: 20, duration: 0.5, onComplete: () => (trackList.style.display = "none") });
+  activeTrack.style.display = "flex";
+  gsap.to(activeTrack, { opacity: 1, y: 0, duration: 0.5 });
 
-function updateSong() {
-    audio.src = songs[currentSongIndex].audio;
-    coverArt.src = songs[currentSongIndex].cover;
+  playPauseButton.textContent = "Pause";
 }
 
-function playMusic() {
-    audio.play();
-    playPauseBtn.textContent = "⏸️";
-}
-
-function pauseMusic() {
+// Toggle play/pause with animations
+function togglePlayPause() {
+  if (isPlaying) {
     audio.pause();
-    playPauseBtn.textContent = "▶️";
+    isPlaying = false;
+    playPauseButton.textContent = "Play";
+  } else {
+    audio.play();
+    isPlaying = true;
+    playPauseButton.textContent = "Pause";
+  }
 }
+
+// Play the next track with smooth transitions
+function playNextTrack() {
+  const nextIndex = (currentTrackIndex + 1) % tracks.length;
+  gsap.to(activeTrack, { opacity: 0, y: 20, duration: 0.5, onComplete: () => playTrack(nextIndex) });
+}
+
+// GSAP animation for play buttons
+document.querySelectorAll(".play-button").forEach(button => {
+  gsap.from(button, { opacity: 0, scale: 0.8, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+  button.addEventListener("click", () => {
+    const index = button.getAttribute("data-index");
+    playTrack(index);
+  });
+});
+
+playPauseButton.addEventListener("click", togglePlayPause);
+nextButton.addEventListener("click", playNextTrack);
+
+// Initial animations for the entire container
+gsap.from(".music-player", { opacity: 0, y: -50, duration: 1, ease: "power2.out" });
 
