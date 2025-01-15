@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Bio Link</title>
+    <link rel="stylesheet" href="./backend/styles.css">
+    <link rel="icon" href="your-anime-icon.png">
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        #bio-text {
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+        }
+        .views-section {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 15px;
+            background: rgba(226, 218, 218, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+        }
+        .views-section img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        /* Style for the arrow button */
+        .arrow-button {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .arrow-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .arrow-button a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+    <div class="mute-button-container">
+        <button id="mute-button" class="mute-button">
+            🔇
+        </button>
+    </div>
+    <audio id="background-audio" loop>
+        <source src="./assets/song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+        <div class="background">
+            <video autoplay muted loop class="background-video">
+                <source src="./assets/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+    <div class="background">
+        <div class="mica-effect">
+            <div class="profile-container">
+                <img class="avatar" src="./assets/avatar.png" alt="Avatar" />
+                <div class="id-name2" id="id-name">Paru Ki Waifu</div>
+                <div class="id-name" id="id-name"><strong>Wine ♡</strong>
+                </div>
+                <div class="logo-container">
+                    <img class="logo" src="./assets/fire.png" alt="Logo 1" />
+                    <img class="logo" src="./assets/value.png" alt="Logo 2" />
+                    <img class="logo" src="./assets/ghost.png" alt="Logo 3" />
+                    <img class="logo" src="./assets/working.png" alt="Logo 4" />
+                  </div>
+            <div class="bio-section">
+                <p id="bio-text">Heaven on earth is place with you,<br> tell me all things you wanna do 🌸</br></p>
+            </div>
+            <div class="custom-rpc">
+                <!-- Left Avatar -->
+                <div class="rpc-avatar-left">
+                    <img src="./assets/avatar.png" alt="Avatar Left" id="rpc-avatar-left" />
+                </div>
+            
+                <!-- Details Section -->
+                <div class="rpc-details">
+                    <div class="username-container">
+                        <h3 id="rpc-username">Skye ♡</h3>
+                    </div>
+                    <p id="status"><b>In Love<b> with Skye 💗</p>
+                    <p id="rpc-details">Such A Selenophile ?</p>
+                </div>
+            
+                <!-- Right Avatar -->
+                <div class="rpc-avatar-right">
+                    <img src="./assets/avatar.png" alt="Avatar Right" id="rpc-avatar-right" />
+                </div>
+            </div>
+            
+            </div>                   
+                </div>
+            </div>
+    </div>
+    <div class="views-section">
+        <img src="./assets/eyes.png" alt="Logo">
+        <p><i class="fas fa-eye"></i>0</p>
+    </div>
+        <!-- Arrow Button -->
+        <div class="arrow-button">
+            <a href="./backend/player.html">➤</a>
+        </div>
+    <div class="footer">
+        <strong>Made With ♡ For Love <3</strong>
+    </div>
+    <script src="./backend/script.js"></script>
+</body>
+</html>
