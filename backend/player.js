@@ -8,27 +8,27 @@ const nextButton = document.getElementById("next-button");
 
 const tracks = [
   { 
-    name: "Apocalypse", 
-    artist: "Cigarettes After Sex", 
+    name: "Bad Girls Like You", 
+    artist: "Tobii", 
     cover: "../assets/cigs.jpg", 
     src: "../assets/songs/Apocalypse.mp3" 
   },
   { 
-    name: "C02", 
-    artist: "Prateek Kuhad", 
-    cover: "../assets/c02.jpg", 
+    name: "Tainu Khabar Nahi", 
+    artist: "Arijit Singh", 
+    cover: "../assets/c02.png", 
     src: "../assets/songs/C02.mp3" 
   },
   { 
-    name: "Mulaqaat", 
-    artist: "AUR,Taimour Baig", 
-    cover: "../assets/aur.jpeg", 
+    name: "SAD GIRLZ LUV MONEY", 
+    artist: "Amaarae", 
+    cover: "https://upload.wikimedia.org/wikipedia/en/a/a2/Amaarae_-_Sad_Girlz_Luv_Money_%28Remix%29.png", 
     src: "../assets/songs/AUR.mp3" 
   },
   { 
-    name: "Wo Noor", 
-    artist: "AP Dhillon", 
-    cover: "../assets/ap.jpg", 
+    name: "O Paalanhaare", 
+    artist: "Lata Mangeshkar", 
+    cover: "https://c.saavncdn.com/072/Lagaan-Hindi-2001-20190603122008-500x500.jpg", 
     src: "../assets/songs/NOOR.mp3" 
   }
 ];
