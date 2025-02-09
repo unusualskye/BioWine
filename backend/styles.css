@@ -501,3 +501,72 @@ body {
     color: #fff;
     font-size: 18px;
 }
+
+
+/* Style for the sliding menu */
+.notification-menu {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 300px;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transition: left 0.3s;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+.notification-menu.open {
+    left: 0;
+}
+/* Style for the notification container */
+.notification-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.notification-container h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.notification-container p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+/* Style for the close button */
+.close-button {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Style for the notification icon container */
+.notification-icon-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+/* Style for the notification icon */
+.notification-icon {
+    width: 30px;
+    height: 30px;
+}
