@@ -124,15 +124,46 @@
     </div>
     <div class="views-section">
         <img src="./assets/eyes.png" alt="Logo">
-        <p><i class="fas fa-eye"></i>103</p>
+        <p><i class="fas fa-eye"></i>198</p>
     </div>
         <!-- Arrow Button -->
         <div class="arrow-button">
             <a href="./backend/player.html">➤</a>
         </div>
+    <!-- Notification Icon Container -->
+    <div class="notification-icon-container">
+        <img src="./assets/notification.png" alt="Notification Icon" class="notification-icon" id="notification-icon">
+    </div>
+    <!-- Notification Menu -->
+    <div class="notification-menu" id="notification-menu">
+        <h2>Notifications</h2>
+        <div class="notification-container">
+            <h3>Notification 1</h3>
+            <p>Notification data 1</p>
+        </div>
+        <div class="notification-container">
+            <h3>Notification 2</h3>
+            <p>Notification data 2</p>
+        </div>
+        <div class="notification-container">
+            <h3>Notification 3</h3>
+            <p>Notification data 3</p>
+        </div>
+        <button class="close-button" id="close-button">Close</button>
+    </div>
+                        
     <div class="footer">
         <strong>Made With ♡ For Love <3</strong>
     </div>
     <script src="./backend/script.js"></script>
+                            <script>
+        document.getElementById('notification-icon').addEventListener('click', function() {
+            document.getElementById('notification-menu').classList.add('open');
+        });
+
+        document.getElementById('close-button').addEventListener('click', function() {
+            document.getElementById('notification-menu').classList.remove('open');
+        });
+    </script>
 </body>
 </html>
