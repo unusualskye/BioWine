@@ -523,6 +523,7 @@ body {
     left: 0;
 }
 /* Style for the notification container */
+/* Style for the notification container */
 .notification-container {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -534,10 +535,31 @@ body {
 .notification-container h3 {
     margin: 0;
     font-size: 18px;
+    font-family: 'Arial', sans-serif; /* Use a lighter font for heading */
+    font-weight: 600; /* Semi-bold for a heading look */
+    color: #ff69b4; /* Add a pink color for the heading */
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Add a pink glow effect */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
+
+.notification-container h3:hover {
+    color: #ff1493; /* Darker pink on hover */
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.7); /* Stronger glow on hover */
+}
+
 .notification-container p {
     margin: 5px 0 0;
     font-size: 14px;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Change font to Comic Sans */
+    font-weight: 300; /* Make the font thin */
+    color: #000000; /* Light yellow color for the text */
+    text-shadow: 0 0 5px rgba(255, 250, 205, 0.5); /* Add a light yellow glow effect */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.notification-container p:hover {
+    color: #fff8dc; /* Lighter yellow on hover */
+    text-shadow: 0 0 10px rgba(255, 248, 220, 0.7); /* Stronger glow on hover */
 }
 /* Style for the close button */
 .close-button {
