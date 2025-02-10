@@ -55,8 +55,8 @@ body {
 
 /* Mica Effect Container */
 .mica-effect {
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.5);
